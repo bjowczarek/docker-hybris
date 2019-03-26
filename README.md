@@ -34,6 +34,7 @@ $ bin/dh-gen.sh --bundle <YOUR_HYBRIS_VERSION>.zip --recipe <the_hybris_recipe>
 To get a full list of recipes available, please refer to the specific `Installer Recipe Reference` page for your SAP Hybris version
 
 ## Running the container
+
 Once you have generated the Hybris container using `dh-gen` command, you can use it to run your custom codebase and configuration.
 
 To get the full list of available docker containers on your machine, run `docker images` on a terminal window.
@@ -50,7 +51,7 @@ You can run your own codebase directly in the Hybris container with this setup:
 ```bash
 $ docker run -d --name <MY_CONTAINER_NAME> \
   -p 9001:9001 -p 9002:9002 \
-  -v $PWD/ydocker_data/:/opt/hybris/data/ \
+  -v $PWD/docker_data/:/opt/hybris/data/ \
   -v /path/to/hybris/bin/custom/:/opt/hybris/bin/custom/ \
   -v /path/to/hybris/config/:/opt/hybris/config/:ro \
   <DOCKER_IMAGE>:<TAG>
