@@ -1,4 +1,10 @@
 #!/bin/bash
+
+_catalina=/opt/hybris/config/tomcat/conf/catalina.properties
+_line=$(awk '/tomcat.util.scan.StandardJarScanFilter.jarsToSkip/{ print NR; exit }' $_catalina)
+_line=$(($_line + 1))
+sed -i "${_line}i "'bcprov*.jar,\\' $_catalina
+
 cd /opt/hybris/bin/platform/
 
 . ./setantenv.sh
