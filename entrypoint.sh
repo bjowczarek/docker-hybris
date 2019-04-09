@@ -8,6 +8,7 @@ sed -i "${_line}i "'bcprov*.jar,\\' $_catalina
 cd /opt/hybris/bin/platform/
 
 . ./setantenv.sh
+. ./config-env.sh
 
 if [[ ! -z $ANT_TASKS ]]
 then

@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-MAINTAINER Manuel Castellin (manuel@castellinconsulting.com)
 
 # input arguments
 ARG COMMERCE_SUITE_FILE
@@ -29,5 +28,8 @@ RUN unzip /tmp/hybris-commerce-suite.zip -d /opt/ \
 # Setting entrypoint
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
+
+ENV ANT_OPTS="-Xmx6144m -XX:MaxPermSize=1536m"
+ENV JAVA_OPTIONS='-Xmx6144m'
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
